@@ -4,9 +4,20 @@
 	$phone3 = trim(substr($info->phone,7,4));
 ?>
 <script>
+$(document).on('click', '#memberdel', function(){
+				if($(this).data('uid') == "admin"){
+					$('.modal-body').text('관리자 계정은 탈퇴할 수 없습니다.');
+				}
+				else{
+					$('.modal-body').text($(this).data('name') +'님 탈퇴 하시겠습니까?');
+				}
+				
+				$('#memberId').val($(this).data('id'));
+				$('#memberuid').val($(this).data('uid'));
+			});
 $(document).on('click', '.modal_cansel', function(){
 				$('.modal-body').text($(this).data('roomname')+'을 취소 하시겠습니까?');
-				$('#roomID').val($(this).data('id'));
+				$('#roomId').val($(this).data('id'));
 			});
 $(document).on('click', '#edit', function(){
 				$('#pwd').removeAttr('readonly');
@@ -50,6 +61,16 @@ $(document).on('click', '#cansel', function(){
 				$(this).parent().attr('style','display:none');
 				$(this).parent().prev().attr('style','display:block');
 			});
+
+			function memberdel(){
+				if(form3.memberuid.value == "admin"){
+					form3.submit();
+				}
+				else{
+					form3.action="/~team4/mypage/memberdel/ID" + form3.memberId.value;
+					form3.submit();
+				}
+			}
 </script>
 
 		<!--================Breadcrumb Area =================-->
@@ -107,6 +128,7 @@ $(document).on('click', '#cansel', function(){
 									<div class="col-md-12 text-right">
 										<div class="button-group-area" id="update_div">
 											<a id="edit" class="genric-btn primary">수정하기</a>												
+											<a id="memberdel" class="genric-btn primary" href="#memberdelModal" data-toggle='modal' data-id="<?=$info->ID;?>" data-uid="<?=$info->uid;?>" data-name="<?=$info->name;?>">탈퇴하기</a>
 										</div>
 										<div class="button-group-area" id="update_can_div" style="display:none;">
 											<button type="submit" id="update" class="genric-btn primary">수정완료</button>
@@ -160,7 +182,7 @@ foreach ($list as $row) {
 <!-- Modal -->
 <div class="modal fade" id="canselModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <form name="form2" method="post" action="/~team4/mypage/del">
-<input type="text" name="roomID" id="roomID" value="">
+<input type="hidden" name="roomId" id="roomId" value="">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -171,7 +193,29 @@ foreach ($list as $row) {
         취소 하시겠습니까?
       </div>
       <div class="modal-footer">
-			<button type="submit" class="btn btn-sm btn-secondary"">확인</button>
+			<button type="submit" class="btn btn-sm btn-secondary">확인</button>
+	        <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">닫기</button>     
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="modal fade" id="memberdelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form name="form3" method="post" action="">
+<input type="hidden" name="memberId" id="memberId" value="">
+<input type="hidden" name="memberuid" id="memberuid" value="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">회원 탈퇴</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        탈퇴 하시겠습니까?
+      </div>
+      <div class="modal-footer">
+			<a class="btn btn-sm btn-secondary" href="javascript:memberdel();">확인</a>
 	        <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">닫기</button>     
       </div>
     </div>

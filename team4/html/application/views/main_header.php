@@ -47,7 +47,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="/~team4/main">메인</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/~team4/main">메인</a></li>
                             <li class="nav-item"><a class="nav-link" href="/~team4/about">리조트 소개</a></li>
 							<li class="nav-item"><a class="nav-link" href="/~team4/roomInfo">방 소개</a></li>
                             <li class="nav-item"><a class="nav-link" href="/~team4/booking">예약</a></li>

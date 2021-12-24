@@ -47,6 +47,8 @@
 				$data["text2"]=$text2;
 				$data["text3"]=$text3;
 				$data["text4"]=$text4;
+				$present = "booking";
+
 				$data["row_count"]= $this->booking_m->rowcount($text1, $text2, $text3, $text4);  // 전체 레코드개수 구하기
 				$data["limit"] = $limit;
 				$data["list"] = $this->booking_m->getlist($text1, $text2, $text3, $text4);   // 해당페이지 자료읽기
@@ -57,7 +59,7 @@
 
 				if ($this->form_validation->run()==FALSE)
 				{ 
-					$this->load->view("main_header");                    // 상단출력(메뉴)
+					$this->load->view("main_header", $present);                    // 상단출력(메뉴)
 					$this->load->view("booking_list",$data);           // booking_list에 자료전달
 					$this->load->view("main_footer");                      // 하단 출력
 				}
@@ -74,7 +76,7 @@
 
 					$this->booking_m->insertrow($data); 
 
-					redirect("/~team4/main");    //   목록화면으로 이동.
+					redirect("/~team4/mypage");    //   목록화면으로 이동.
 				}
 			}
         }

@@ -23,12 +23,6 @@
 			return  $this->db->query($sql)->row();
 		}
 
-		function getinfo($uid) 
-		{
-			$sql="select * from member where uid='$uid'";	// 조인 할 거 개많음
-			return  $this->db->query($sql)->row();
-		}
-
 		function deleterow($ID)
 		{
 			$sql="delete from book where ID=$ID";
@@ -40,6 +34,18 @@
 		{
 			$where=array("ID"=>$ID);
 			return $this->db->update("member",$row,$where);
+		}
+
+		function getinfo($uid) 
+		{
+			$sql="select * from member where uid='$uid'";	// 조인 할 거 개많음
+			return  $this->db->query($sql)->row();
+		}
+
+		function deletemember($ID)
+		{
+			$sql="delete from member where ID=$ID";
+			return  $this->db->query($sql);
 		}
 		
     }

@@ -55,11 +55,21 @@
 		public function del()
 		{
 			$uri_array=$this->uri->uri_to_assoc(3);
-			$ID= $this->input->post("roomID",TRUE) ;		
+			$ID= $this->input->post("roomId",TRUE) ;		
 			
 			$this->mypage_m->deleterow($ID);
 
 			redirect("/~team4/mypage/");             // 목록화면으로 돌아가기
+		}
+
+		public function memberdel()
+		{
+			$uri_array=$this->uri->uri_to_assoc(3);
+			$ID= $this->input->post("memberId",TRUE) ;		
+			
+			$this->mypage_m->deletemember($ID);
+
+			redirect("/~team4/main/");             // 목록화면으로 돌아가기
 		}
 
 		public function edit()

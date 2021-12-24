@@ -36,8 +36,9 @@
 
 			$data["list_review"] = $this->main_m->getlist_review();	// 리뷰 랜덤 생성
 			$data["list_room"] = $this->main_m->getlist_room();
-
-			$this->load->view("main_header");		// view폴더의 header.php 와
+			
+			$present = "main";
+			$this->load->view("main_header",$present);		// view폴더의 header.php 와
 			$this->load->view("index", $data);
 			$this->load->view("main_footer");		//  footer.php 호출
 		}

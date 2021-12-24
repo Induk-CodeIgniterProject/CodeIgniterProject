@@ -52,7 +52,7 @@
 		<li class='nav-item'><a class='nav-link' href='/~team4/register'>회원가입</a></li>"); 
 	}	
 	else {
-		echo("<li class='nav-item'><a class='nav-link' href='/~team4/member/myPage'>내 정보</a></li>
+		echo("<li class='nav-item'><a class='nav-link' href='/~team4/mypage'>내 정보</a></li>
 		<li class='nav-item'><a class='nav-link' href='/~team4/login/logout'>로그아웃</a></li>");
 	}
 
