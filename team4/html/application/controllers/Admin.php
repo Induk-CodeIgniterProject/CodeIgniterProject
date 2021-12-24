@@ -11,14 +11,7 @@
         }
         public function index()                            // 제일 먼저 실행되는 함수
         {
-			if($this->session->userdata('uid') != 'admin'){
-				redirect("/~team4/main");
-
-			}
-			else{
-				$this->lists();                                 // list 함수 호출
-			}
-            
+            $this->lists();                                 // list 함수 호출
         }
         public function lists()
         {

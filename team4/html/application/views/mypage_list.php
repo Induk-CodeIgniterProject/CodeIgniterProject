@@ -160,7 +160,7 @@ foreach ($list as $row) {
 <!-- Modal -->
 <div class="modal fade" id="canselModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <form name="form2" method="post" action="/~team4/mypage/del">
-<input type="hidden" name="roomID" id="roomID" value="">
+<input type="text" name="roomID" id="roomID" value="">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

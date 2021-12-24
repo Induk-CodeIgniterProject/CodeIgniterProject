@@ -13,9 +13,7 @@
         }
         public function lists()
         {
-			$present = "contact";
-
-            $this->load->view("main_header", $present);                    // 상단출력(메뉴)
+            $this->load->view("main_header");                    // 상단출력(메뉴)
             $this->load->view("contactMe");			// contactMe에 자료전달
             $this->load->view("main_footer");                      // 하단 출력 
         }

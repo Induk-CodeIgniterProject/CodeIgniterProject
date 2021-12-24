@@ -6,6 +6,7 @@
                     <h3>편안하고 화목한 분위기로 초대합니다.</h3>
 					<h2>Induk Royal</h2>
                     <h5>방마다 수용인원과 크기가 다름에 유의하세요!</h5>
+                    <a href="#" class="btn white_btn button_hover">View More</a>
                 </div>
             </div>
         </section>
@@ -54,7 +55,7 @@
                                     <img src="/~team4/room_img/<?=$row1->pic; ?>" style="width:100px; height:60px;" alt="post">
                                     <div class="media-body">
                                         <a href="/~team4/roomInfo/view/ID/<?=$row1->ID;?>"><h3><?=$row1->name; ?></h3></a>
-                                        <p><?=number_format($row1->price); ?>원</p>
+                                        <p><?=$row1->price; ?>원</p>
                                     </div>
                                 </div>
 <?
